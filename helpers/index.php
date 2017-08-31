@@ -1,10 +1,11 @@
 <?php
 function getUsers () {
     $filepath = "http://{$_SERVER['SERVER_NAME']}/autorize/3/users.json";
-        $users;
-        $users = file_get_contents($filepath);
-        $users = json_decode($users);
-        return $users;
+    $users;
+    $users = file_get_contents($filepath);
+    $users = json_decode($users);
+    return $users;
+    
     header("HTTP/1.0 406 Not Acceptable");
     die("something rong <br />$filepath");
 }
