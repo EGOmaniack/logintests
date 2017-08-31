@@ -45,7 +45,7 @@ if(isset($_SESSION['logged'])) {
         <input type="submit" name="loginform" value="login">
         <input type="hidden" name="hashpass" id="hashpass">
     </form>
-    <form action="./enctest/index.html" method="post">
+    <form action="./enctest/index.php" method="post">
         <input type="submit" value="Зарегистрироваться">
     </form>
 <?php else: ?>
