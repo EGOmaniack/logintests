@@ -1,26 +1,5 @@
 <?php
-// include_once '../helpers/index.php';
-function login (string $login, string $pass) {
-    if(file_exists('../users.json')) {
-        //пытаемся найти такого юзера
-        $users = file_get_contents('../users.json');
-        $users = json_decode($users);
-        $user = "";
-        $pass = hash('sha256', $pass);
-        
-        for ($i=0; $i < count($users); $i++) { 
-            if($login === $users[$i]->login) {
-                $user = $users[$i];
-                break;
-            }
-        }
-        if(isset($user->id)) {
-            return true;
-        } else {
-            return false;
-        }
-    } 
-}
+include '../helpers/index.php';
 
 if(file_exists("../users.json") && isset($_POST)) {
     $users = file_get_contents("../users.json");
@@ -29,7 +8,7 @@ if(file_exists("../users.json") && isset($_POST)) {
     $login = $_POST['login'];
     $pass = $_POST['pass'];
 
-    $alredyisuser = login($login, $pass, true);
+    $alredyisuser = checkUser($login);
     echo "login - $login <br /> pass - $pass";
     // var_dump(login($login, "", true));
     if(!$alredyisuser) {
@@ -38,6 +17,7 @@ if(file_exists("../users.json") && isset($_POST)) {
         $newuser['login'] = $login;
         $newuser['pass'] = hash('sha256', $pass);
         $newuser['regdate'] = time();
+        $newuser['permissionlvl'] = 'regular';
 
         $users[] = $newuser;
 

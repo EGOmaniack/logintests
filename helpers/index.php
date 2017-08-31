@@ -1,22 +1,44 @@
 <?php
-function login (string $login, string $pass) {
-    if(file_exists('./users.json')) {
-        //пытаемся найти такого юзера
-        $users = file_get_contents('./users.json');
+function getUsers () {
+    $filepath = "http://{$_SERVER['SERVER_NAME']}/autorize/3/users.json";
+        $users;
+        $users = file_get_contents($filepath);
         $users = json_decode($users);
-        $user = "";
-        $pass = hash('sha256', $pass);
-        for ($i=0; $i < count($users); $i++) { 
-            if($login === $users[$i]->login && 
-            $pass === $users[$i]->pass) {
-                $user = $users[$i];
-                break;
-            }
-        }
-        return $user;
-    } 
+        return $users;
+    header("HTTP/1.0 406 Not Acceptable");
+    die("something rong <br />$filepath");
 }
 
+
+function login (string $login, string $pass) {
+    $users = getUsers();
+    $user = "";
+    $pass = hash('sha256', $pass);
+    for ($i=0; $i < count($users); $i++) { 
+        if($login === $users[$i]->login && 
+        $pass === $users[$i]->pass) {
+            $user = $users[$i];
+            break;
+        }
+    }
+    return $user;
+}
+function checkUser (string $login) {
+    $users = getUsers();
+    $user = "";
+    
+    for ($i=0; $i < count($users); $i++) { 
+        if($login === $users[$i]->login) {
+            $user = $users[$i];
+            break;
+        }
+    }
+    if(isset($user->id)) {
+        return true;
+    } else {
+        return false;
+    }
+}
 function logout () {
     session_unset();     // unset $_SESSION variable for the run-time 
     session_destroy();   // destroy session data in storage

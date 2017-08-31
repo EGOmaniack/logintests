@@ -7,6 +7,7 @@ if(isset($_POST) && isset($_POST['loginform'])) {
     $pass = $_POST['hashpass'];
     $user = login($login, $pass);
     if(isset($user->id)) {
+        unset($user->pass);
         $_SESSION['user'] = $user;
         $_SESSION['logged'] = true;
         $_SESSION['lastTimeStamp'] = time ();

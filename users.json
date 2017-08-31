@@ -1,41 +1,31 @@
 [{
-    "id": 359,
+    "id": 7071,
     "login": "123",
-    "pass": "99de91c10352c3b3ed680eb2a09c6f6f72f1bae7ee9381726b5ab313fdc8d3e0",
-    "regdate": 1504155171
-}, {
-    "id": 390,
-    "login": "egomaniack",
-    "pass": "22c66956d9c16257d9a5b0706b6b32bfc341495603349d8d1061af66a84f1f91",
-    "regdate": 1504155202
-}, {
-    "id": 731,
-    "login": "1234",
     "pass": "869a9f31601c206879dd1928d0c0a0c0bdf9ee8934e976c397e914b394e2dba8",
-    "regdate": 1504155543
+    "regdate": 1504161883,
+    "permissionlvl": "regular"
 }, {
-    "id": 1464,
+    "id": 7073,
     "login": "user2",
     "pass": "394f647147c84b2a122762143c40297fcc30d038cb2738fbdfd70047a224c662",
-    "regdate": 1504156276
+    "regdate": 1504161885,
+    "permissionlvl": "regular"
 }, {
-    "id": 1481,
+    "id": 7078,
     "login": "user1",
     "pass": "4eb0c548decd5ea32c0e6a7c2fa244cefa60bff89674d5da5ff3796f07773358",
-    "regdate": 1504156293
+    "regdate": 1504161890,
+    "permissionlvl": "regular"
 }, {
-    "id": 1540,
+    "id": 7083,
     "login": "root",
     "pass": "e7eb7a43f255e6252c1f625a044f1e40a3a68d5361b610118e26a95b7a1f369a",
-    "regdate": 1504156352
+    "regdate": 1504161895,
+    "permissionlvl": "regular"
 }, {
-    "id": 2618,
-    "login": "root3",
-    "pass": "4eb0c548decd5ea32c0e6a7c2fa244cefa60bff89674d5da5ff3796f07773358",
-    "regdate": 1504157430
-}, {
-    "id": 2884,
-    "login": "888",
-    "pass": "4eb0c548decd5ea32c0e6a7c2fa244cefa60bff89674d5da5ff3796f07773358",
-    "regdate": 1504157696
+    "id": 7100,
+    "login": "egomaniack",
+    "pass": "99de91c10352c3b3ed680eb2a09c6f6f72f1bae7ee9381726b5ab313fdc8d3e0",
+    "regdate": 1504161912,
+    "permissionlvl": "admin"
 }]

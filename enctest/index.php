@@ -1,3 +1,10 @@
+<?php
+session_start();
+var_dump($_SESSION);
+
+$permission = $_SESSION['user']->permissionlvl;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +19,7 @@
     <form action="encpass.php" id="regform">
         <input type="text" name="login" id="login">
         <input type="password" id="pwd" name="password" />
-        <input type="submit">
+        <input type="submit" <?php echo $permission !== "admin" ? "disabled" : "" ?> >
     </form>
     <script>
         var pwdObj = document.getElementById('pwd');
