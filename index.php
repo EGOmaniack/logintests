@@ -11,7 +11,7 @@ if(isset($_POST) && isset($_POST['loginform'])) {
         $_SESSION['user'] = $user;
         $_SESSION['logged'] = true;
         $_SESSION['lastTimeStamp'] = time ();
-        header("location: hello/");
+        header("location: hello/", true, "301");
     } else {
         echo "incorrect login or pass";
     }
@@ -66,7 +66,7 @@ if(isset($_SESSION['logged'])) {
             var hash = hashObj.getHash("HEX");
             return hash;
         }
-        loginform.addEventListener('submit', (e)=>{
+        loginform.addEventListener('submit', function (e){
             // e.preventDefault();
             hashpass.value = mySubmit(pwd.value);
             // loginform.submit();

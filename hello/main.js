@@ -2,11 +2,11 @@ var sub = document.querySelector('#messageForm');
 var p = document.querySelector('#message');
 var mes = document.querySelector('#inputMessage');
 
-sub.addEventListener('submit', (e)=>{
+sub.addEventListener('submit', function (e){
     e.preventDefault();
-    p.innerHTML = `tryin to send ${mes.value}`;
+    p.innerHTML = "tryin to send " + mes.value;
 
-    var body = `message=${encodeURIComponent(mes.value)}`;
+    var body = "message=" + encodeURIComponent(mes.value);
 
     var request = new XMLHttpRequest();
     request.open('POST', sub.action, true);

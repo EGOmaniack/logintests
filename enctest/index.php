@@ -1,6 +1,6 @@
 <?php
 session_start();
-var_dump($_SESSION);
+// var_dump($_SESSION);
 
 $permission = $_SESSION['user']->permissionlvl;
 ?>
@@ -32,7 +32,7 @@ $permission = $_SESSION['user']->permissionlvl;
             var hash = hashObj.getHash("HEX");
             return hash;
         }
-        regform.addEventListener('submit', (e)=>{
+        regform.addEventListener('submit', function (e){
             e.preventDefault();
             let body = `login=${encodeURIComponent(login.value)}&pass=${mySubmit(pwdObj.value)}`;
 

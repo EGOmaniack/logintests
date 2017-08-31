@@ -1,6 +1,6 @@
 <?php
 function getUsers () {
-    $filepath = "http://{$_SERVER['SERVER_NAME']}/autorize/3/users.json";
+    $filepath = "http://{$_SERVER['SERVER_NAME']}:8090/login/users.json";
     $users;
     $users = file_get_contents($filepath);
     $users = json_decode($users);
@@ -27,18 +27,14 @@ function login (string $login, string $pass) {
 function checkUser (string $login) {
     $users = getUsers();
     $user = "";
-    
+
     for ($i=0; $i < count($users); $i++) { 
         if($login === $users[$i]->login) {
             $user = $users[$i];
             break;
         }
     }
-    if(isset($user->id)) {
-        return true;
-    } else {
-        return false;
-    }
+    return isset($user->id);
 }
 function logout () {
     session_unset();     // unset $_SESSION variable for the run-time 
