@@ -34,11 +34,11 @@ if(isset($_SESSION['logged'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js"></script>
+    <script src="./libs/hash.js"></script>
 </head>
 <body>
 <?php if(!isset($_SESSION["logged"])): ?>
-    <form action="./index.php" method="post" id="loginform">
+    <form method="post" id="loginform">
         <input type="text" name="login" id="login">
         <input type="password" id="pwd">
         <input type="submit" name="loginform" value="login">
